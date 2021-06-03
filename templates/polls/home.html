@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block header %}
+{% include 'header.html' %}
+{% endblock%}
+
+{% block navigations %}{% endblock %}
+<!-- Loop through questions and create a list of exisiting questions -->
+{% block content %}
+
+{% for q in questions %}
+<ul>
+        
+      <li><a href = "{% url 'polls:detail' q.slug %}">{{ q.question_text }}</a></li>
+      
+</ul>
+
+{% endfor %}
+
+{% endblock %}

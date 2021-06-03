@@ -1,0 +1,43 @@
+{% load static %}
+<section id="hero" class="d-flex align-items-center">
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+    <div class="row justify-content-center">
+      <div class="col-xl-7 col-lg-9 text-center">
+        <h1>Ghana Polls</h1>
+        <h2>Interesting and Fun Polls in Ghana</h2>
+      </div>
+    </div>
+    <div class="text-center">
+      <a href="{% url 'polls:home' %}" class="btn-get-started scrollto">Cast A Vote</a>
+    </div>
+    
+    <div class="row icon-boxes">
+      {% for question in questions %}
+      <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box mb-3">
+          <div class="icon"><i class="ri-stack-line"></i></div>
+          <h4 class="title"><a href="{% url 'polls:detail' question.slug %}">{{ question.question_text }}</a></h4>
+          <p class="description">{{question.question_description}}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    
+  </div>
+
+</section>
+
+<div class="container">
+  
+     <nav aria-label="...">
+     <ul class="pagination pagination-lg"  style="margin-left: 400px">
+       <li class="page-item active" aria-current="page">
+         <span class="page-link">1</span>
+       </li>
+       <li class="page-item"><a class="page-link" href="#">2</a></li>
+       <li class="page-item"><a class="page-link" href="#">3</a></li>
+       <li class="page-item"><a class="page-link" href="#">4</a></li>
+       <li class="page-item"><a class="page-link" href="#">5</a></li>
+     </ul>
+    </nav>
+</div>

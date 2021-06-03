@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block header %}
+
+{% endblock %}
+
+
+{% block hero %}
+    <div class="container mt-5">
+    <h1>Results for: {{ question.question_text }}</h1>
+    {% for choice in question.choice_set.all %}
+        <ol class="list-group m-2">
+            <li class="list-group-item d-flex justify-content-between align-items-start">
+                <div class="ms-2 me-auto">
+                  <div class="fw-bold">{{ choice.choice_text }}</div>
+                </div>
+                <span class="badge bg-danger rounded-pill">{{ choice.votes }}</span>
+            </li>
+        </ol>
+    {% endfor %}
+     <a href="{% url 'polls:pollvote' question.slug %}" class="btn btn-lg btn-primary w-100">Vote again?</a>
+    </div>
+
+{% endblock %}
+
+
+
+
+
+
+
+
+{% block content %}
+
+ {% endblock %}
+
+{% block footer %} {% endblock %}
